@@ -1,18 +1,23 @@
 import Fastify from 'fastify'
-import { prisma } from './lib/prisma'
+import { fastifyCors } from '@fastify/cors'
+import { getAllPromptsRoute } from "./routes/get-all-prompts";
+import { uploadVideoRoute } from "./routes/upload-video";
+import { createTranscriptionRoute } from "./routes/create-transcription";
+import { generateAiCompletionRoute } from "./routes/generate-ai-completion";
 
-const app = Fastify({
-  logger: true
+const app = Fastify()
+
+app.register(fastifyCors, {
+  origin: '*'
 })
 
-
-app.get('/prompts', async () => {
-  const prompts = await prisma.prompt.findMany()
-  return prompts
-})
+app.register(getAllPromptsRoute)
+app.register(uploadVideoRoute)
+app.register(createTranscriptionRoute)
+app.register(generateAiCompletionRoute)
 
 app.listen({
-  port:3333,
-}).then (() => {
-  console.log("HTTP Server Running")
+  port: 3333
+}).then(() => {
+  console.log('HTTP Server Running!')
 })

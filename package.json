@@ -10,13 +10,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^22.7.4",
-    "prisma": "^5.20.0",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.2"
+    "@types/node": "^20.6.0",
+    "dotenv": "^16.4.5",
+    "prisma": "^5.2.0",
+    "tsx": "^3.12.8",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@prisma/client": "^5.20.0",
-    "fastify": "^2.11.0"
+    "@fastify/cors": "^8.3.0",
+    "@fastify/multipart": "^7.7.3",
+    "@prisma/client": "5.2.0",
+    "ai": "^2.2.12",
+    "fastify": "^4.23.0",
+    "openai": "^4.67.1",
+    "zod": "^3.22.2"
   }
 }
